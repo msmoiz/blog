@@ -47,6 +47,8 @@ const { title, description } = Astro.props;
 		--rule: #d8d2c2;
 		--accent: #3c6e59;
 		--muted: #8a8478;
+		--code-string: #a8572e;
+		--code-type: #3d6b99;
 	}
 
 	@media (prefers-color-scheme: dark) {
@@ -56,6 +58,8 @@ const { title, description } = Astro.props;
 			--rule: #33332e;
 			--accent: #7fc8a9;
 			--muted: #8b8d86;
+			--code-string: #e0916a;
+			--code-type: #7fb0d9;
 		}
 	}
 
@@ -128,5 +132,27 @@ const { title, description } = Astro.props;
 		padding: 1rem;
 		border-radius: 6px;
 		overflow-x: auto;
+		background-color: var(--paper);
+
+		--astro-code-foreground: var(--ink);
+		--astro-code-background: var(--paper);
+		--astro-code-token-constant: var(--code-string);
+		--astro-code-token-string: var(--code-string);
+		--astro-code-token-string-expression: var(--code-string);
+		--astro-code-token-comment: var(--muted);
+		--astro-code-token-keyword: var(--accent);
+		--astro-code-token-function: var(--code-type);
+		--astro-code-token-parameter: var(--ink);
+		--astro-code-token-punctuation: var(--muted);
+		--astro-code-token-link: var(--accent);
+	}
+
+	pre span[style*='token-comment'] {
+		font-style: italic;
+	}
+
+	code {
+		font-family: 'IBM Plex Mono', monospace;
+		font-size: 0.85em;
 	}
 </style>
