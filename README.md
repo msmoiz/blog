@@ -1,11 +1,11 @@
 # Blog
 
-Personal blog built with [Astro](https://astro.build), hosted on GitHub Pages
-at [blog.msmoiz.com](https://blog.msmoiz.com).
+This is a personal blog built with [Astro](https://astro.build) and hosted on
+GitHub Pages at [blog.msmoiz.com](https://blog.msmoiz.com).
 
 ## Writing a post
 
-Add a Markdown file to `src/content/blog/` with frontmatter:
+To add a post, add a Markdown file to `src/content/blog/` with frontmatter:
 
 ```md
 ---
@@ -19,6 +19,8 @@ Post content here.
 
 ## Development
 
+To start the development server, run the following commands:
+
 ```sh
 npm install
 npm run dev
@@ -26,7 +28,6 @@ npm run dev
 
 ## Deployment
 
-Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds the
-site and publishes it to GitHub Pages. In the repo settings, set
-**Pages > Source** to **GitHub Actions**. The `public/CNAME` file points the
-custom domain at `blog.msmoiz.com`; DNS is managed separately.
+When you push to `main`, it triggers a GitHub workflow that builds the site and
+publishes it to GitHub Pages. You can configure the routing settings through the
+settings page for this repo.
