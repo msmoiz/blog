@@ -55,6 +55,8 @@ help text as well as subcommand help text, so you can see all your options in
 one place:
 
 ```text
+> checklist create-todo --help
+
 Creates a todo.
 
 The todo is assigned a unique id on creation and begins in an incomplete state,
