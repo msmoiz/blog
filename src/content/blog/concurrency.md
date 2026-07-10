@@ -1,16 +1,21 @@
-# Async, threads, and concurrency
+---
+title: Notes on concurrency
+description: Explaining the difference between concurrency models through the lens of a job application process.
+pubDate: 2026-07-09
+---
 
 I'm going to explain the difference between the various high level concurrency
-models through the lens of a job application process. The basic lifecycle looks
-like this:
+models, as I understand them, through the lens of a job application process. The
+basic lifecycle looks like this:
 
 - Submit an application (1 minute)
 - Wait for feedback (8 minutes)
 - Process the feedback (1 minute)
 
-The goal is to submit 10 applications in total to increase our chances (in
-practice, that number is probably in the hundreds, right? but this makes the
-math easier).
+The first and last steps are things that we do; during the waiting stage, the
+reviewer is working but we are not. The goal is to submit 10 applications in
+total to increase our chances (in practice, that number is probably in the
+hundreds, right? but this makes the math easier).
 
 The basic approach is a single person submitting one application at a time and
 waiting for each one to return before moving on to the next. This process takes
@@ -37,7 +42,7 @@ next one while the first is being reviewed. In fact, the worker can submit all
 execute this approach is 20 minutes: 10 minutes for initial submission, 10
 minutes for post-processing, and no idle time waiting for applications to be
 reviewed. That is a bit slower than hiring 10 people, but it achieves much
-better performacne than the baseline and is much more resource-efficient than
+better performance than the baseline and is much more resource-efficient than
 the hiring approach. This is the _async_ approach. It is characterized by a
 single thread bouncing around between tasks and yielding to the next one at a
 wait point.

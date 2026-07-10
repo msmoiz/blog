@@ -1,0 +1,75 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<Layout title="msmoiz">
+	<h1>Blog</h1>
+	<div class="dot-rule" aria-hidden="true"></div>
+	<ul>
+		{
+			posts.map((post) => (
+				<li>
+					<span class="dot" aria-hidden="true" />
+					<a href={`/blog/${post.id}/`}>{post.data.title}</a>
+					<time datetime={post.data.pubDate.toISOString()}>
+						{post.data.pubDate.toLocaleDateString('en-US', {
+							year: 'numeric',
+							month: 'long',
+							day: 'numeric',
+							timeZone: 'UTC',
+						})}
+					</time>
+				</li>
+			))
+		}
+	</ul>
+</Layout>
+
+<style>
+	ul {
+		list-style: none;
+		padding: 0;
+		margin-top: 2rem;
+	}
+
+	li {
+		display: flex;
+		align-items: baseline;
+		gap: 0.6rem;
+		margin-bottom: 1rem;
+	}
+
+	.dot {
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		background: var(--accent);
+		flex-shrink: 0;
+		transform: translateY(-0.15em);
+	}
+
+	li a {
+		font-family: 'Fraunces', Georgia, serif;
+		font-size: 1.15rem;
+		font-weight: 500;
+		text-decoration: none;
+	}
+
+	li a:hover {
+		text-decoration: underline;
+	}
+
+	time {
+		font-family: 'IBM Plex Mono', monospace;
+		font-size: 0.75rem;
+		letter-spacing: 0.02em;
+		color: var(--muted);
+		white-space: nowrap;
+		margin-left: auto;
+	}
+</style>

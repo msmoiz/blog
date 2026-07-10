@@ -1,0 +1,127 @@
+---
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		{description && <meta name="description" content={description} />}
+		<title>{title}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+		/>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<a href="/">msmoiz</a>
+			</nav>
+			<div class="dot-rule" aria-hidden="true"></div>
+		</header>
+		<main>
+			<slot />
+		</main>
+		<footer>
+			<div class="dot-rule" aria-hidden="true"></div>
+			<p>&copy; {new Date().getFullYear()} msmoiz</p>
+		</footer>
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		color-scheme: light dark;
+		--ink: #1c1b17;
+		--paper: #f6f3ec;
+		--rule: #d8d2c2;
+		--accent: #3c6e59;
+		--muted: #8a8478;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--ink: #e9e6da;
+			--paper: #17181a;
+			--rule: #33332e;
+			--accent: #7fc8a9;
+			--muted: #8b8d86;
+		}
+	}
+
+	body {
+		max-width: 40rem;
+		margin: 0 auto;
+		padding: 2rem 1.25rem 3rem;
+		font-family: 'Source Serif 4', Georgia, serif;
+		font-size: 1.125rem;
+		line-height: 1.7;
+		color: var(--ink);
+		background: var(--paper);
+	}
+
+	h1,
+	h2,
+	h3 {
+		font-family: 'Fraunces', Georgia, serif;
+		font-optical-sizing: auto;
+		font-weight: 600;
+		letter-spacing: -0.01em;
+		line-height: 1.2;
+	}
+
+	header nav a {
+		text-decoration: none;
+		font-family: 'Fraunces', Georgia, serif;
+		font-weight: 600;
+		font-size: 1.25rem;
+		letter-spacing: -0.01em;
+		color: var(--ink);
+	}
+
+	header {
+		margin-bottom: 2.5rem;
+	}
+
+	.dot-rule {
+		height: 5px;
+		margin: 0.9rem 0;
+		background-image: radial-gradient(circle, var(--rule) 1.4px, transparent 1.6px);
+		background-size: 13px 5px;
+		background-repeat: repeat-x;
+		background-position: left center;
+	}
+
+	footer .dot-rule {
+		margin-bottom: 1.1rem;
+	}
+
+	footer {
+		margin-top: 3.5rem;
+		font-family: 'IBM Plex Mono', monospace;
+		font-size: 0.8rem;
+		letter-spacing: 0.02em;
+		color: var(--muted);
+	}
+
+	a {
+		color: var(--accent);
+		text-underline-offset: 0.2em;
+	}
+
+	pre {
+		padding: 1rem;
+		border-radius: 6px;
+		overflow-x: auto;
+	}
+</style>
