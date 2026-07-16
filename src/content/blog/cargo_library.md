@@ -93,9 +93,9 @@ impl CargoBuild {
 
 It works by creating a command under the hood and appending arguments to it in a
 more structured way. It reads more naturally at the call site, which I quite
-like. It also has the benefit that once you take the initial effort to the
-document the relevant flags, that documentation shows up in your editor
-thereafter. This is what it looks like in use:
+like. It also has the benefit that once you take the initial effort to document
+the relevant flags, that documentation shows up in your editor thereafter. This
+is what it looks like in use:
 
 ```rust
 cargo::build()
@@ -104,7 +104,7 @@ cargo::build()
     .output()
 ```
 
-I admit this is only half of the abstraction that could exist. It provides a
+I admit this is only half of the abstraction that could exist. It provides an
 in-memory experience for constructing the input, but the raw command invocation
 and output machinery is still exposed at the tail end. There is a world where
 those parts are wrapped up in a neat structured return type, and indeed
