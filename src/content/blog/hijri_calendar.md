@@ -14,11 +14,11 @@ think and structure my affairs in terms of the Gregorian calendar, like the rest
 of the Western world, but I am also Muslim, which means I need to keep track of
 Muslim holidays. The trouble is that the Hijri calendar, which is based on the
 movements of the moon, has 11 days less than the Gregorian calendar. This means
-that if a given holiday lands on `x`, it will land on `x - 11` on the following
-day. Over the course of years, this drift makes it impossible to look at a solar
-date and intuit which Muslim holidays land on that date. As a result, I forget
-about important dates easily, and I find myself flipping back and forth between
-applications when I go to plan trips and other matters.
+that if a given holiday lands on `x`, it will land on `x - 11` in the following
+year. Over the course of years, this drift makes it impossible to look at a
+solar date and intuit which Muslim holidays land on that date. As a result, I
+forget about important dates easily, and I find myself flipping back and forth
+between applications when I go to plan trips and other matters.
 
 And so today I set about trying to create a Hijri calendar that I can embed into
 a standard calendaring app, so that I can see holidays alongside the other
