@@ -11,6 +11,7 @@ const { title, description } = Astro.props;
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="alternate" type="application/rss+xml" title="msmoiz" href="/rss.xml" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		{description && <meta name="description" content={description} />}
@@ -34,7 +35,7 @@ const { title, description } = Astro.props;
 		</main>
 		<footer>
 			<div class="dot-rule" aria-hidden="true"></div>
-			<p>&copy; {new Date().getFullYear()} Mustafa Moiz</p>
+			<p>&copy; {new Date().getFullYear()} Mustafa Moiz / <a href="/rss.xml" class="rss-link">Feed</a></p>
 		</footer>
 	</body>
 </html>
@@ -116,6 +117,15 @@ const { title, description } = Astro.props;
 		font-size: 0.8rem;
 		letter-spacing: 0.02em;
 		color: var(--muted);
+	}
+
+	.rss-link {
+		color: var(--muted);
+		text-decoration: none;
+	}
+
+	.rss-link:hover {
+		color: var(--accent);
 	}
 
 	a {
